@@ -30,11 +30,13 @@ jobs:
       ##   key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
 
       - run:
-          name: Download Dependencies
+          name: Change permissions for gradlew Dependencies
           command: |
-                  sudo chmod +x ~/repo/AndroidDemo/gradlew
+                  sudo chmod +x ./gradlew
 
-      - run: ./gradlew androidDependencies
+      - run:
+          name: Download Dependencies
+          command: dir -al;./gradlew androidDependencies
 
       - save_cache:
           paths:
@@ -42,4 +44,4 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
 
       # run tests!
-      - run: ./gradlew assembleAndroidTest
+      - run: dir -la;./gradlew assembleAndroidTest
