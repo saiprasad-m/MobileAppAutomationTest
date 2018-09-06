@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - checkout
-      - run: ls -l; cd repo/AndroidDemo; pwd; ls -l
+      - run: ls -l; cd AndroidDemo; pwd; ls -l
 
       # Download and cache dependencies
       ##- restore_cache:
@@ -36,7 +36,7 @@ jobs:
 
       - run:
           name: Download Dependencies
-          command: dir -al;pwd;./gradlew androidDependencies
+          command: dir -al;cd /home/circleci/repo/AndroidDemo;pwd;./gradlew androidDependencies
 
       - save_cache:
           paths:
