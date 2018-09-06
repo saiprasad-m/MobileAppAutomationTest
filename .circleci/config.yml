@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - checkout
-      - run: dir -l; cd ..; dir -l; cd repo/AndroidDemo; pwd
+      - run: ls -l; cd repo/AndroidDemo; pwd; ls -l
 
       # Download and cache dependencies
       ##- restore_cache:
@@ -32,11 +32,11 @@ jobs:
       - run:
           name: Change permissions for gradlew Dependencies
           command: |
-                  sudo chmod +x ./gradlew
+                  sudo chmod +x /home/circleci/repo/AndroidDemo/gradlew
 
       - run:
           name: Download Dependencies
-          command: dir -al;./gradlew androidDependencies
+          command: dir -al;pwd;./gradlew androidDependencies
 
       - save_cache:
           paths:
