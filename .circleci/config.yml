@@ -34,7 +34,7 @@ jobs:
           command: |
                   sudo chmod +x ~/repo/AndroidDemo/gradlew
 
-      - run: ~/repo/AndroidDemo/gradlew androidDependencies
+      - run: ./gradlew androidDependencies
 
       - save_cache:
           paths:
@@ -42,4 +42,4 @@ jobs:
           key: jars-{{ checksum "~/repo/AndroidDemo/build.gradle" }}-{{ checksum  "~/repo/AndroidDemo/app/build.gradle" }}
 
       # run tests!
-      - run: ~/repo/AndroidDemo/gradlew assembleAndroidTest
+      - run: ./gradlew assembleAndroidTest
