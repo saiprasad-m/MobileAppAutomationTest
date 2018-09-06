@@ -40,5 +40,5 @@ jobs:
               path: app/build/outputs/apk/debug/app-debug.apk
               destination: app-debug.apk
           - run:
-              name: Uploading on Beta
-              command: ./gradlew androidTest
+              name: Testing of MyTaxi for assembly
+              command: ./gradlew assembleAndroidTest
