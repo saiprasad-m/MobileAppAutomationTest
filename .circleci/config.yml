@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - checkout
-      - run: dir -al repo; pwd; dir -al repo/AndroidDemo;
+      - run: dir -al; pwd
 
       # Download and cache dependencies
       - restore_cache:
