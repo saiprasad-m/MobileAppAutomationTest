@@ -33,8 +33,7 @@ jobs:
           name: Download Dependencies
           command: |
                   sudo chmod +x ~/repo/AndroidDemo/gradlew
-                  sudo chmod +x ~/repo/AndroidDemo/app/gradlew
-                  ~/repo/AndroidDemo/app/gradlew androidDependencies
+                   ~/repo/AndroidDemo/gradlew androidDependencies
 
       - save_cache:
           paths:
@@ -42,4 +41,4 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
 
       # run tests!
-      - run: .~/repo/AndroidDemo/app/gradlew assembleAndroidTest
+      - run: .~/repo/AndroidDemo/gradlew assembleAndroidTest
