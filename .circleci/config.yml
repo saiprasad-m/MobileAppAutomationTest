@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - checkout
-      - run: dir -l; cd ..; dir -l; cd repo; pwd
+      - run: dir -l; cd ..; dir -l; cd repo/AndroidDemo; pwd
 
       # Download and cache dependencies
       ##- restore_cache:
@@ -34,12 +34,12 @@ jobs:
           command: |
                   sudo chmod +x ~/repo/AndroidDemo/gradlew
 
-      - run: ./AndroidDemo/gradlew androidDependencies
+      - run: ./gradlew androidDependencies
 
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "~/repo/AndroidDemo/build.gradle" }}-{{ checksum  "~/repo/AndroidDemo/app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
 
       # run tests!
-      - run: ./AndroidDemo/gradlew assembleAndroidTest
+      - run: ./gradlew assembleAndroidTest
