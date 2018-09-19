@@ -181,6 +181,10 @@ public class MainActivity extends AuthenticatedActivity
         }
         try {
             if (mPermissionHelper.isLocationPermissionGranted()) {
+<<<<<<< HEAD
+=======
+                Log.e("Do nothing: %s", "Nathing at all");
+>>>>>>> 04ff84ce9ddd19d41523eff4619de6b087fdcd48
             } else {
                 mLastKnownLocation = null;
                 mPermissionHelper.getLocationPermission(this);
